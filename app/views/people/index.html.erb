@@ -1,0 +1,37 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= form_tag people_index_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<div class="people index">
+  <h2>Msafe : Mark yourself safe</h2>
+
+  <%= link_to("Add New Person", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="Person list">
+    <tr class="header">
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Location</th>
+    </tr>
+    <% @people.each do |person| %>
+    <tr>
+      <!-- <td><%= person.id %></td> -->
+      <td><%= person.name %></td>
+      <td class="center"><%= person.phone %></td>
+      <td class="center"><%= person.location %></td>
+      <td class="action">
+        <%= link_to("Delete", {:action => 'delete', :id => person.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

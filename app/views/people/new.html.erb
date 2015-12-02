@@ -1,0 +1,35 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<br><br>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="people new">
+  <h2>Add Person</h2>
+
+  <%= form_for(:person, :url => {:action => 'create'}) do |f| %>
+
+    <table summary="Person form fields">
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+      <tr>
+        <th>Phone</th>
+        <td><%= f.text_field(:phone) %></td>
+      </tr>
+      
+      <tr>
+        <th>Location</th>
+        <td><%= f.text_field(:location) %></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= submit_tag("Add Person") %>
+    </div>
+
+  <% end %>
+</div>
