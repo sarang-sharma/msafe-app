@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   match ':controller(/:action(/:id))',:via => [:get, :post]
   get "people/index"
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'people#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
