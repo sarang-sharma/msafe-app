@@ -1,12 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# TO DO
 
-Things you may want to cover:
+- Integrate Google Maps API
+- Add UI
+
+### Specs
 
 * Ruby version - ruby 2.2.3p173 (2015-08-18 revision 51636)
 
 * Rails 4.2.0
 
-* Database creation - mysql
+* Database - mysql
