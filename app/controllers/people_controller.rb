@@ -19,7 +19,8 @@ class PeopleController < ApplicationController
 
 	def create
 		@person = Person.new(params.require(:person).permit(:name, :location, :phone, :status, :ipaddress))
-		@person.ipaddress = request.env['REMOTE_ADDR']
+		@person.ipaddress = request.env['REMOTE_ADDR'].to_s
+	
 		if @person.save
 			redirect_to(:action => 'index')
 			flash[:notice] = "Person successfully added."
