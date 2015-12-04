@@ -29,8 +29,7 @@
       <th>Name</th>
       <th>Phone</th>
       <th>Location</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
+      <th>Status</th>
     </tr>
     <% @people.each do |person| %>
     <tr>
@@ -38,8 +37,7 @@
       <td><%= person.name %></td>
       <td class="center"><%= person.phone %></td>
       <td class="center"><%= person.location %></td>
-      <td class="center"><%= person.latitude %></td>
-      <td class="center"><%= person.longitude %></td>
+      <td class="center"><%= person.status.upcase %></td>
       <td class="action">
         <%= link_to("Delete", {:action => 'delete', :id => person.id}, :class => 'action delete') %>
       </td>
@@ -50,6 +48,43 @@
 
 <br><br><br>
 
+ <script>
+  var locations = [<% @people.each do |person| %>
+            ['<%= person.location %>',<%= person.latitude %>,<%= person.longitude %>],
+           <% end %>  
+          ];
+    
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 8,
+      center: new google.maps.LatLng(13.082680, 80.270718),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var infoWindowContent = [ <% @people.each do |person| %>
+        ['<div class="info_content">' + '<h3>Name: <%= person.name %><br>Located at: <%= person.location %><br>Status: <%= person.status.upcase %><br><%= person.phone %></h3>'+'</div>'],
+        <% end %>  
+    ];
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(infoWindowContent[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+
+    }
+ </script>
   
 
     
