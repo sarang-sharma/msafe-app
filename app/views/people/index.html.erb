@@ -4,23 +4,33 @@
   </div>
 <% end %>
 
-<%= form_tag people_index_path, :method => :get do %>
+
+
+<div class="people index">
+  <h1>Msafe : Mark yourself safe</h1>
+    
+  <br>
+
+  <div id="map" style="width: 500px; height: 400px;"></div>
+
+  <br><br><br>
+  <%= link_to("Add New Person", {:action => 'new'}, :class => 'action new') %>
+
+  <br><br><br>
+  
+  <%= form_tag people_index_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
-
-<div class="people index">
-  <h2>Msafe : Mark yourself safe</h2>
-
-  <%= link_to("Add New Person", {:action => 'new'}, :class => 'action new') %>
-
   <table class="listing" summary="Person list">
     <tr class="header">
       <th>Name</th>
       <th>Phone</th>
       <th>Location</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
     </tr>
     <% @people.each do |person| %>
     <tr>
@@ -28,6 +38,8 @@
       <td><%= person.name %></td>
       <td class="center"><%= person.phone %></td>
       <td class="center"><%= person.location %></td>
+      <td class="center"><%= person.latitude %></td>
+      <td class="center"><%= person.longitude %></td>
       <td class="action">
         <%= link_to("Delete", {:action => 'delete', :id => person.id}, :class => 'action delete') %>
       </td>
@@ -40,4 +52,4 @@
 
   
 
-    <div id="map" style="width: 500px; height: 400px;"></div>
+    

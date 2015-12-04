@@ -10,5 +10,9 @@ class Person < ActiveRecord::Base
 		text :phone, :location		
 	end
 
+	geocoded_by :location,
+  		:latitude => :latitude, :longitude => :longitude
+	after_validation :geocode
+
 
 end
