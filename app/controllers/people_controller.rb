@@ -9,8 +9,6 @@ class PeopleController < ApplicationController
 		end
 		#@people = Person.search params[:search]
 		@people = @search.results
-
-
 	end
 
 	def new
