@@ -32,9 +32,40 @@
       </tr>
     </table>
 
-    <div class="form-buttons">
+    <div class="form-buttons" id="add_btn">
       <%= submit_tag("Add Person") %>
     </div>
 
   <% end %>
 </div>
+
+<script>
+  
+
+function getLocation() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(savePosition, positionError, {timeout:10000});
+      } else {
+          alert ("Geolocation is not supported by this browser");
+      }
+  }
+
+  // handle the error here
+  function positionError(error) {
+      var errorCode = error.code;
+      var message = error.message;
+
+      alert(message);
+  }
+
+  function savePosition(position) {
+            
+  }
+
+$(document).ready(function(){
+    $("#add_btn").click(function(){
+        getLocation();
+    });
+});
+
+</script

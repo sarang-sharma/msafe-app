@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204080110) do
+ActiveRecord::Schema.define(version: 20151204130700) do
 
   create_table "people", force: :cascade do |t|
     t.string   "name",       limit: 60,               null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20151204080110) do
     t.float    "latitude",   limit: 24
     t.float    "longitude",  limit: 24
     t.string   "status",     limit: 255
+    t.string   "ipaddress",  limit: 255
   end
 
 end

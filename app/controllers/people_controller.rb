@@ -1,5 +1,7 @@
 class PeopleController < ApplicationController
 
+
+
 	def index
 		#@people = Person.order("name ASC").group("location")
 		@search = Person.search do
@@ -16,7 +18,8 @@ class PeopleController < ApplicationController
 	end
 
 	def create
-		@person = Person.new(params.require(:person).permit(:name, :location	, :phone, :status))
+		@person = Person.new(params.require(:person).permit(:name, :location, :phone, :status, :ipaddress))
+		@person.ipaddress = request.env['REMOTE_ADDR']
 		if @person.save
 			redirect_to(:action => 'index')
 			flash[:notice] = "Person successfully added."
