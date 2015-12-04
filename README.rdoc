@@ -1,11 +1,11 @@
 == README
 
-# TO DO
+== TO DO
 
 - Integrate Google Maps API
 - Add UI
 
-### Specs
+== Specs
 
 * Ruby version - ruby 2.2.3p173 (2015-08-18 revision 51636)
 
