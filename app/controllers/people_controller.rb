@@ -16,7 +16,7 @@ class PeopleController < ApplicationController
 	end
 
 	def create
-		@person = Person.new(params.require(:person).permit(:name, :location, :phone, :status))
+		@person = Person.new(params.require(:person).permit(:name, :location	, :phone, :status))
 		if @person.save
 			redirect_to(:action => 'index')
 			flash[:notice] = "Person successfully added."

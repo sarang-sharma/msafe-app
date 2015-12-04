@@ -7,12 +7,16 @@ class Person < ActiveRecord::Base
 
 	searchable do
 		text :name, :boost => 3 
-		text :phone, :location		
+		text :phone, :location, :status		
 	end
 
 	geocoded_by :location,
   		:latitude => :latitude, :longitude => :longitude
 	after_validation :geocode
 
+	before_save :concatenate_chennai
 
+  	def concatenate_chennai
+     	self.location = "#{location},Chennai"
+  	end
 end
