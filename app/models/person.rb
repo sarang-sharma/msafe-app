@@ -6,7 +6,9 @@ class Person < ActiveRecord::Base
 	validates_presence_of :location
 
 	searchable do
-		text :name, :phone, :location		
+		text :name, :boost => 3 
+		text :phone, :location		
 	end
+
 
 end
