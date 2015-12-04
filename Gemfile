@@ -5,7 +5,7 @@ ruby '2.2.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use mysql as the database for Active Record
-
+gem 'mysql2', '~> 0.3.18'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,10 +46,6 @@ group :development do
   gem 'sunspot_solr'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
-
-group :development do
-	gem 'mysql2', '~> 0.3.18'
 end
 
 group :production do
