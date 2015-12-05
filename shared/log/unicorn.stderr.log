@@ -1,0 +1,9 @@
+I, [2015-12-05T09:15:45.463331 #18609]  INFO -- : Refreshing Gem list
+I, [2015-12-05T09:15:47.227469 #18609]  INFO -- : listening on addr=/home/deploy/msafe/shared/sockets/unicorn.sock fd=11
+I, [2015-12-05T09:15:47.227641 #18609]  INFO -- : worker=0 spawning...
+I, [2015-12-05T09:15:47.229724 #18609]  INFO -- : worker=1 spawning...
+I, [2015-12-05T09:15:47.230778 #18609]  INFO -- : master process ready
+I, [2015-12-05T09:15:47.237787 #18613]  INFO -- : worker=0 spawned pid=18613
+I, [2015-12-05T09:15:47.238009 #18613]  INFO -- : worker=0 ready
+I, [2015-12-05T09:15:47.239035 #18615]  INFO -- : worker=1 spawned pid=18615
+I, [2015-12-05T09:15:47.239202 #18615]  INFO -- : worker=1 ready
