@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  host: localhost
   database: msafe_production
   username: msafe
   password: <%= ENV['MSAFE_DATABASE_PASSWORD'] %>
