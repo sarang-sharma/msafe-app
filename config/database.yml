@@ -49,7 +49,10 @@ test:
 #
 production:
   <<: *default
-  
+  host: localhost
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
   database: msafe_production
   username: msafe
   password: <%= ENV['MSAFE_DATABASE_PASSWORD'] %>
