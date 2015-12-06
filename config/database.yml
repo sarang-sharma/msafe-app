@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: msafe
-  password: secretpassword
+  username: root
+  password: bornofosiris
   socket: /var/run/mysqld/mysqld.sock
 
 development:
@@ -54,5 +54,5 @@ production:
   encoding: utf8
   pool: 5
   database: msafe_production
-  username: msafe
+  username: root
   password: <%= ENV['MSAFE_DATABASE_PASSWORD'] %>
